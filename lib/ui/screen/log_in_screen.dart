@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:task_manager/ui/screen/sing_up_screen.dart';
 
 import '../widget/body_background.dart';

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/ui/screen/pin_verification.dart';
-import '../widget/body_background.dart';
 
-class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+import '../widget/body_background.dart';
+import 'log_in_screen.dart';
+
+class ConfirmPassword extends StatelessWidget {
+  const ConfirmPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +17,20 @@ class ForgetPassword extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 100,),
-                const Text('Your Email Address',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900),),
-                const Text('A digit verification pin will send to your  email address'),
+                const Text('Set Password',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900),),
+                const Text('Minimum length password 8 character with latter and number combination'),
                 const SizedBox(height: 20,),
                 TextField(
                   textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
-                      labelText: 'Email'
+                      labelText: 'Password'
+                  ),
+                ),
+                const SizedBox(height: 15,),
+                TextField(
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                      labelText: 'Confirm Password'
                   ),
                 ),
                 const SizedBox(height: 20,),
@@ -31,8 +38,8 @@ class ForgetPassword extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PinVerification(),));
-                    }, child: const Icon(Icons.arrow_circle_right_outlined,color: Colors.black,),
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LogInScreen(),), (route) => false);
+                    }, child: const Text('Confirm'),
                   ),
                 ),
                 const SizedBox(
@@ -47,7 +54,7 @@ class ForgetPassword extends StatelessWidget {
                     }, child: const Text(
                       ' Sing In?',
                       style: TextStyle(
-                          color: Colors.green,fontWeight: FontWeight.bold,),
+                        color: Colors.green,fontWeight: FontWeight.bold,),
                     ),
                     )
                   ],
